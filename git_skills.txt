@@ -5,6 +5,11 @@ git branch: 查看当前所有分支
 git log: 查看提交日志
 git reflog: 查看所有分支的提交日志
 
+git switch -c <name>: 创建并切换进入新分支
+git merge <name>: 合并某分支
+git switch: 切换分支
+git branch -d <name>: 删除分支
+
 git add: 将文件添加到暂存区
 git restore: 将文件从暂存区恢复到工作区
 git commit: 将暂存区的文件提交到仓库
