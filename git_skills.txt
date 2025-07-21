@@ -9,6 +9,9 @@ git switch -c <name>: 创建并切换进入新分支
 git merge <name>: 合并某分支
 git switch: 切换分支
 git branch -d <name>: 删除分支
+git stash: 保留工作区内容
+git stash pop: 弹出工作区内容
+git cherry-pick <commit>: 复制提交
 
 git add: 将文件添加到暂存区
 git restore: 将文件从暂存区恢复到工作区
