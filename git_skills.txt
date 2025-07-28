@@ -4,6 +4,7 @@ git diff: 查看工作区和暂存区的差异
 git branch: 查看当前所有分支
 git log: 查看提交日志
 git reflog: 查看所有分支的提交日志
+git rm <file>: 删除文件
 
 git switch -c <name>: 创建并切换进入新分支
 git merge <name>: 合并某分支
@@ -15,8 +16,8 @@ git stash pop: 弹出工作区内容
 git cherry-pick <commit>: 复制提交
 
 git add: 将文件添加到暂存区
-git restore: 将文件从暂存区恢复到工作区
-git commit: 将暂存区的文件提交到仓库
+git restore --staged <file>: 将文件从暂存区恢复到工作区
+git commit -m "": 将暂存区的文件提交到仓库
 git reset --hard HEAD^: 回退到上一个版本
 git reset --hard: 回退到指定版本
 git reset --soft: 回退到指定版本，保留工作区和暂存区的差异
@@ -27,4 +28,5 @@ git remote rm <name>>: 解除本地与远程仓库之间的联系，但并不会
 git remote set-url origin <new url>: 重新绑定新的远程仓库
 git remote -v: 查看远程仓库的信息
 git push -u origin master: 第一次推送代码到远程仓库
+git pull origin master: 从远程仓库拉取文件到本地
 git clone <url>: 克隆远程仓库到本地
