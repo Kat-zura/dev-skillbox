@@ -1,14 +1,104 @@
-# 拉取镜像
-docker pull <name>
+#############################################
+## Docker 虚拟化技术技能整理 · 命令速查清单 ##
+#############################################
 
-# 运行容器（-d后台运行，-p端口映射）
-docker run -d -p <端口号>:<端口号> <name>
+────────────────────────────────────────────
+一、镜像管理（Image）
+────────────────────────────────────────────
 
-# 查看运行中的容器
-docker ps
+# 搜索远程镜像
+docker search <IMAGE>
 
-# 构建镜像（基于当前目录的Dockerfile）
-dcoker build -t <目录>
+# 拉取镜像（默认拉取 latest，不推荐省略 TAG）
+docker pull <IMAGE>:<TAG>
 
-# 进入容器内部
+# 查看本地镜像列表
+docker images
+
+# 导出镜像到文件（默认当前目录）
+docker save -o <IMAGE>.tar <IMAGE>:<TAG>
+
+# 从文件导入镜像
+docker load -i <IMAGE>.tar
+
+# 删除镜像
+docker rmi <IMAGE>:<TAG>
+
+# 上传镜像到远程仓库（需打标签）
+## Step 1: 打标签（tag）
+docker tag <IMAGE>:<TAG> <仓库名称>/<自定义镜像>:<TAG>
+
+## Step 2: 上传（push）
+docker push <仓库名称>/<自定义镜像>:<TAG>
+
+# 构建镜像（基于当前目录的 Dockerfile）
+docker build -t <IMAGE>:<TAG> .
+
+
+
+────────────────────────────────────────────
+二、容器管理（Container）
+────────────────────────────────────────────
+
+【启动方式提示】
+方式一：手动拉取镜像 -> docker run 启动容器  
+方式二：run 指令自动拉取镜像并启动容器（推荐）
+
+# 启动已存在容器
+docker start <容器ID>
+
+# 重启容器
+docker restart <容器ID>
+
+# 停止容器
+docker stop <容器ID>
+
+# 后台运行容器（-d）并映射端口（-p）
+docker run -d -p <主机端口>:<容器端口> <IMAGE>:<TAG>
+
+# 交互式运行容器
+## -i：保持标准输入打开；-t：分配伪终端
+docker run -it <IMAGE>:<TAG>
+
+# 查看容器列表
+docker ps        # 查看运行中的容器
+docker ps -a     # 查看全部容器（含已停止）
+
+# 进入容器内部终端
 docker exec -it <容器ID> /bin/bash
+
+# 删除停止的容器
+docker rm <容器ID>
+
+# 强制删除正在运行的容器
+docker rm -f <容器ID>
+
+
+
+────────────────────────────────────────────
+三、数据卷（Volume）
+────────────────────────────────────────────
+
+# 创建数据卷
+docker volume create <卷名>
+
+# 查看所有数据卷
+docker volume ls
+
+# 挂载数据卷到容器路径
+docker run -v <卷名>:<容器目录> <IMAGE>:<TAG>
+
+# 删除数据卷
+docker volume rm <卷名>
+
+
+
+────────────────────────────────────────────
+四、Dockerfile 指令速记
+────────────────────────────────────────────
+FROM       <基础镜像>        # 指定基础镜像
+RUN        <命令>            # 执行命令（可链式）
+COPY       <源路径> <目标路径>  # 复制文件
+CMD        ["可执行文件","参数"]  # 默认启动命令
+
+
