@@ -1,32 +1,69 @@
-git init: 初始化git仓库，进行版本管理
-git status: 查看当前仓库的状态
-git diff: 查看工作区和暂存区的差异
-git branch: 查看当前所有分支
-git log: 查看提交日志
-git reflog: 查看所有分支的提交日志
-git rm <file>: 删除文件
+==============================
+🚀 Git 基础操作命令
+==============================
 
-git switch -c <name>: 创建并切换进入新分支
-git merge <name>: 合并某分支
-git switch: 切换分支
-git branch -d <name>: 删除分支
-git branch -D <name>: 强制删除分支
-git stash: 保留工作区内容
-git stash pop: 弹出工作区内容
-git cherry-pick <commit>: 复制提交
+git init                     # 初始化 Git 仓库，开始版本管理
+git status                   # 查看当前仓库状态
+git diff                     # 查看工作区与暂存区的差异
+git log                      # 查看提交日志
+git reflog                   # 查看所有分支的提交记录
+git rm <file>                # 删除文件
 
-git add: 将文件添加到暂存区
-git restore --staged <file>: 将文件从暂存区恢复到工作区
-git commit -m "": 将暂存区的文件提交到仓库
-git reset --hard HEAD^: 回退到上一个版本
-git reset --hard: 回退到指定版本
-git reset --soft: 回退到指定版本，保留工作区和暂存区的差异
-git reset --mixed(默认状态): 回退到指定版本，保留工作区的差异
+==============================
+🌿 分支管理
+==============================
 
-git remote add origin <url>: 添加远程仓库
-git remote rm <name>>: 解除本地与远程仓库之间的联系，但并不会真的删除远程仓库
-git remote set-url origin <new url>: 重新绑定新的远程仓库
-git remote -v: 查看远程仓库的信息
-git push -u origin master: 第一次推送代码到远程仓库
-git pull origin master: 从远程仓库拉取文件到本地
-git clone <url>: 克隆远程仓库到本地
+git branch                   # 查看所有分支
+git switch -c <name>         # 创建并切换到新分支
+git switch <name>            # 切换分支
+git merge <name>             # 合并指定分支
+git branch -d <name>         # 删除分支（安全删除）
+git branch -D <name>         # 强制删除分支
+git cherry-pick <commit>     # 复制指定提交到当前分支
+
+==============================
+📦 暂存区与提交管理
+==============================
+
+git add <file>               # 添加文件到暂存区
+git restore --staged <file>  # 从暂存区恢复到工作区
+git commit -m "message"      # 提交暂存区内容到仓库
+
+==============================
+⏪ 版本回退
+==============================
+
+git reset --hard HEAD^       # 回退到上一个版本（彻底清除）
+git reset --hard <commit>    # 回退到指定版本（彻底清除）
+git reset --soft <commit>    # 回退到指定版本，保留暂存区和工作区
+git reset --mixed <commit>   # 默认方式，保留工作区，清除暂存区
+
+==============================
+📥 暂存工作区修改
+==============================
+
+git stash                    # 保存当前工作区内容
+git stash pop                # 恢复最近一次 stash 的内容
+
+==============================
+🌐 远程仓库操作
+==============================
+
+git remote add origin <url>          # 添加远程仓库
+git remote rm <name>                 # 解除本地与远程仓库的绑定
+git remote set-url origin <new url>  # 修改远程仓库地址
+git remote -v                        # 查看远程仓库信息
+git push -u origin master            # 首次推送到远程仓库
+git pull origin master               # 拉取远程仓库内容
+git clone <url>                      # 克隆远程仓库到本地
+
+==============================
+✅ 小贴士
+==============================
+
+- `HEAD^` 表示上一个提交；`HEAD~2` 表示上上个提交
+- `git reset` 的三种模式：
+  - `--soft`：保留暂存区和工作区
+  - `--mixed`：保留工作区，清除暂存区（默认）
+  - `--hard`：清除暂存区和工作区，彻底回退
+- `git stash` 可用于临时保存未提交的修改，适合切换分支前使用
