@@ -1,0 +1,33 @@
+JavaScript代码可以放在<head>中
+JavaScript代码可以放在.js文件，然后通过<script src="..."></script>引用
+JavaScript严格区分大小写
+// 行注释
+/* ... */ 块注释
+JavaScript使用===进行比较
+
+toUpperCase # 字符串全部变为大写
+toLowerCase # 字符串全部变为小写
+indexOf # 搜索指定字符串出现的位置
+substring # 返回指定索引区间的子串
+slice
+
+array[]
+push() # 队尾添加
+pop()  # 队尾删除
+unshift() # 队首添加
+shift()   # 队首删除
+sort()    # 自动排序
+reverse() # 元素反转
+splice()  # 从指定索引删除，再从指定索引添加
+concat()
+join()
+
+对象{...}
+
+for .. of iterable
+
+函数
+function    name(x){
+    ...
+}
+参数arguments
