@@ -19,4 +19,4 @@
 ---
 
 感谢你的访问，希望你能在这里收获灵感与实用技能 💡  
-By [@Power-Kid](https://github.com/Power-Kid)
+By [@Kat-zura](https://github.com/Kat-zura)
